@@ -10,6 +10,7 @@ namespace Probnik
 {
     class ProbnikContext : DbContext
     {
+
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserToPersonConnection> UserToEPersonConnections { get; set; }
@@ -18,14 +19,17 @@ namespace Probnik
         public DbSet<TaskContent> TaskContents { get; set; }
         public DbSet<ChallangeType> ChallangeTypes { get; set; }
         public DbSet<Challange> Challanges { get; set; }
-        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Configurations.Add(new UserToPersonConnectionConfiguration());
             modelBuilder.Configurations.Add(new PersonConfiguration());
             modelBuilder.Configurations.Add(new PatronConfiguration());
             modelBuilder.Configurations.Add(new TaskContentConfiguration());
             modelBuilder.Configurations.Add(new ChallangeConfiguration());
+            modelBuilder.Configurations.Add(new TeamConfiguration());
+
         }
 
     }

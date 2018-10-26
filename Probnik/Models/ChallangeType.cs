@@ -11,6 +11,6 @@ namespace Probnik
         public int Id { get; set; }
         public string Name { get; set; }
         public ICollection<Methodology> Methodologies { get; set; }
-        public ICollection<Task> Tasks { get; set; }
+        public ICollection<TaskContent> Tasks { get; set; }
     }
 }

@@ -48,6 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesConfiguration\ChallangeConfiguration.cs" />
+    <Compile Include="EntitiesConfiguration\PatronConfiguration.cs" />
+    <Compile Include="EntitiesConfiguration\PersonConfiguration.cs" />
+    <Compile Include="EntitiesConfiguration\TaskContentConfiguration.cs" />
+    <Compile Include="EntitiesConfiguration\TeamConfiguration.cs" />
+    <Compile Include="EntitiesConfiguration\UserToPersonConnectionConfiguration.cs" />
+    <Compile Include="Migrations\201810262117273_InitialModel.cs" />
+    <Compile Include="Migrations\201810262117273_InitialModel.Designer.cs">
+      <DependentUpon>201810262117273_InitialModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Challange.cs" />
     <Compile Include="Models\ChallangeType.cs" />
     <Compile Include="Models\ConnectionType.cs" />
@@ -55,7 +65,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Patron.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\ProbnikContext.cs" />
+    <Compile Include="ProbnikContext.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +75,15 @@
     <Compile Include="Models\TaskContent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810262117273_InitialModel.resx">
+      <DependentUpon>201810262117273_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
