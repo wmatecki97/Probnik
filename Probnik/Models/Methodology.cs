@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Probnik
 {
-    public enum Methodology : byte
+    public class Methodology
     {
-        Z = 0,
-        H = 1,
-        HS = 2,
-        W = 3,
-        I = 4
+        public byte Id { get; set; }
+        public string Name { get; set; }
     }
 }

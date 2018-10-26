@@ -12,7 +12,7 @@ namespace Probnik.EntitiesConfiguration
         public PatronConfiguration()
         {
             HasRequired(p => p.Person)
-                .WithMany()
+                .WithOptional()
                 .Map(m => m.MapKey("PersonId"));
         }
     }

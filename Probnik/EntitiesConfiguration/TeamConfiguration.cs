@@ -24,6 +24,24 @@ namespace Probnik.EntitiesConfiguration
                 .WithMany()
                 .HasForeignKey(t => t.OwnerId)
                 .WillCascadeOnDelete(false);
+
+            HasMany(t => t.Methodologies)
+                .WithMany()
+                .Map(m =>
+                {
+                    m.ToTable("TeamsMethodologies");
+                    m.MapLeftKey("TeamId");
+                    m.MapRightKey("MethodologyId");
+                });
+
+            HasMany(t => t.Patrons)
+                .WithMany()
+                .Map(m =>
+                {
+                    m.ToTable("TeamPatrons");
+                    m.MapLeftKey("TeamId");
+                    m.MapRightKey("PatronId");
+                });
         }
     }
 }

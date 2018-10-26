@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Probnik
 {
-    public enum TaskStates : byte
+    public class TaskState
     {
-        WaitingForAccept = 0,
-        InProgress = 1,
-        Canceled = 2,
+        public byte Id { get; set; }
+        public string Name { get; set; }
     }
 }

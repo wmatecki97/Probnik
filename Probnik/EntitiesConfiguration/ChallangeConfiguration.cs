@@ -11,17 +11,22 @@ namespace Probnik.EntitiesConfiguration
     {
         public ChallangeConfiguration()
         {
-            HasRequired(c => c.Patron)
-                .WithOptional()
-                .Map(m => m.MapKey("PatronId"));
-
-            HasRequired(c => c.Owner)
-                .WithOptional()
-                .Map(m => m.MapKey("OwnerId"));
+            //HasRequired(c => c.Patron)
+            //    .WithMany()
+            //    .Map(m => m.MapKey("PatronId"));
 
             HasRequired(c => c.Task)
                 .WithOptional()
                 .Map(m => m.MapKey("TaskId"));
+
+            HasRequired(c => c.State)
+                .WithMany()
+                .Map(m => m.MapKey("StateId"));
+
+            //HasRequired(c => c.Owner)
+            //    .WithMany()
+            //    .Map(m => m.MapKey("OwnerId"));
+
 
         }
     }

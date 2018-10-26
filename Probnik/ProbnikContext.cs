@@ -23,6 +23,8 @@ namespace Probnik
         public DbSet<TaskContent> TaskContents { get; set; }
         public DbSet<ChallangeType> ChallangeTypes { get; set; }
         public DbSet<Challange> Challanges { get; set; }
+        public DbSet<Methodology> Methodologies { get; set; }
+        public DbSet<TaskState> TaskStateses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -33,6 +35,7 @@ namespace Probnik
             modelBuilder.Configurations.Add(new TaskContentConfiguration());
             modelBuilder.Configurations.Add(new ChallangeConfiguration());
             modelBuilder.Configurations.Add(new TeamConfiguration());
+            modelBuilder.Configurations.Add(new ChallangeTypeConfiguration());
 
         }
 

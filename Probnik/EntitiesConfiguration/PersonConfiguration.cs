@@ -11,17 +11,8 @@ namespace Probnik.EntitiesConfiguration
     {
         public PersonConfiguration()
         {
-            //HasMany(p => p.Teams)
-            //    .WithMany()
-            //    .Map(m =>
-            //    {
-            //        m.ToTable("PeopleInTeams");
-            //        m.MapLeftKey("PersonId");
-            //        m.MapRightKey("TeamId");
-            //    });
-
-
-            
+            HasMany(p => p.Challanges)
+                .WithRequired(c => c.Owner);
         }
     }
 }

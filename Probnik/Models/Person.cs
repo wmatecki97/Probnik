@@ -12,7 +12,8 @@ namespace Probnik
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public ICollection<Team> Teams { get; set; }
-        public ICollection<UserToPersonConnection> Users { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
+        public virtual ICollection<UserToPersonConnection> Users { get; set; }
+        public virtual ICollection<Challange>  Challanges { get; set; }
     }
 }

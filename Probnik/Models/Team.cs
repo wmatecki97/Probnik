@@ -14,6 +14,7 @@ namespace Probnik
         public int OwnerId { get; set; }
         public ICollection<Methodology> Methodologies { get; set; }
         public ICollection<Person> Members { get; set; }
+        public ICollection<Patron>  Patrons { get; set; }
 
     }
 }

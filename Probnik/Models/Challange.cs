@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Probnik
 {
@@ -14,7 +8,7 @@ namespace Probnik
         public Person Owner { get; set; }
         public TaskContent Task { get; set; }
         public string Mission { get; set; }
-        public TaskStates State { get; set; }
+        public TaskState State { get; set; }
         public ICollection<string> Comments { get; set; }
         public Patron Patron { get; set; }
     }
