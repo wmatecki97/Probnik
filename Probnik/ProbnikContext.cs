@@ -10,6 +10,10 @@ namespace Probnik
 {
     class ProbnikContext : DbContext
     {
+        public ProbnikContext() : base("Probnik")
+        {
+            
+        }
 
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
