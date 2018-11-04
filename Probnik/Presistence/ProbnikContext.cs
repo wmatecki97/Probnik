@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Probnik.EntitiesConfiguration;
+using Probnik.Presistence.EntityConfiguration;
 
 namespace Probnik
 {
@@ -36,7 +37,7 @@ namespace Probnik
             modelBuilder.Configurations.Add(new ChallangeConfiguration());
             modelBuilder.Configurations.Add(new TeamConfiguration());
             modelBuilder.Configurations.Add(new ChallangeTypeConfiguration());
-
+            modelBuilder.Configurations.Add(new UserConfiguration());
         }
 
     }

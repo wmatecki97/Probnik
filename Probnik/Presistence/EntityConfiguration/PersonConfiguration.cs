@@ -13,6 +13,8 @@ namespace Probnik.EntitiesConfiguration
         {
             HasMany(p => p.Challanges)
                 .WithRequired(c => c.Owner);
+
+            HasIndex(p => p.PESEL).IsUnique();
         }
     }
 }

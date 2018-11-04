@@ -13,6 +13,9 @@ namespace Probnik
         public string Surname { get; set; }
         public string PESEL { get; set; }
         public DateTime DateOfBirth { get; set; }
+        /// <summary>
+        /// Auto generated key to connect users to this person. It is changed after use.
+        /// </summary>
         public string ConnectionKey { get; set; }
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<UserToPersonConnection> Users { get; set; }

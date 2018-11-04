@@ -50,19 +50,21 @@
   <ItemGroup>
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="Migrations\201811042139359_InitialModel.cs" />
+    <Compile Include="Migrations\201811042139359_InitialModel.Designer.cs">
+      <DependentUpon>201811042139359_InitialModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\PatronConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\PersonConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\TaskContentConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\TeamConfiguration.cs" />
+    <Compile Include="Presistence\EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\UserToPersonConnectionConfiguration.cs" />
     <Compile Include="Exceptions\LoginInUseException.cs" />
     <Compile Include="LoginService.cs" />
-    <Compile Include="Migrations\201810262241527_InitialModel.cs" />
-    <Compile Include="Migrations\201810262241527_InitialModel.Designer.cs">
-      <DependentUpon>201810262241527_InitialModel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Core\Domain\Challange.cs" />
     <Compile Include="Core\Domain\ChallangeType.cs" />
     <Compile Include="Core\Domain\ConnectionType.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="Core\Domain\TaskState.cs" />
     <Compile Include="Presistence\ProbnikContext.cs" />
     <Compile Include="Core\Domain\Team.cs" />
+    <Compile Include="Presistence\Repositories\Repository.cs" />
+    <Compile Include="Presistence\Repositories\UserRepository.cs" />
     <Compile Include="Presistence\UnitOfWork.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,12 +91,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810262241527_InitialModel.resx">
-      <DependentUpon>201810262241527_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811042139359_InitialModel.resx">
+      <DependentUpon>201811042139359_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presistence\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

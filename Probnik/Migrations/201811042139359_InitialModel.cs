@@ -35,9 +35,12 @@ namespace Probnik.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Surname = c.String(),
+                        PESEL = c.String(),
                         DateOfBirth = c.DateTime(nullable: false),
+                        ConnectionKey = c.String(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.PESEL, unique: true);
             
             CreateTable(
                 "dbo.Teams",
@@ -96,7 +99,8 @@ namespace Probnik.Migrations
                         Email = c.String(),
                         IsAdmin = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Login, unique: true);
             
             CreateTable(
                 "dbo.TaskStates",
@@ -211,10 +215,12 @@ namespace Probnik.Migrations
             DropIndex("dbo.PeopleInTeams", new[] { "PersonId" });
             DropIndex("dbo.PeopleInTeams", new[] { "TeamId" });
             DropIndex("dbo.TaskContents", new[] { "ChallangeTypeId" });
+            DropIndex("dbo.Users", new[] { "Login" });
             DropIndex("dbo.UserToPersonConnections", new[] { "PersonId" });
             DropIndex("dbo.UserToPersonConnections", new[] { "UserId" });
             DropIndex("dbo.Patrons", new[] { "PersonId" });
             DropIndex("dbo.Teams", new[] { "OwnerId" });
+            DropIndex("dbo.People", new[] { "PESEL" });
             DropIndex("dbo.Challanges", new[] { "TaskId" });
             DropIndex("dbo.Challanges", new[] { "StateId" });
             DropIndex("dbo.Challanges", new[] { "Patron_Id" });
