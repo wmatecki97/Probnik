@@ -17,8 +17,8 @@ namespace Probnik
 
         public DbSet<Team> Teams { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserToPersonConnection> UserToEPersonConnections { get; set; }
-        public DbSet<Person> Person { get; set; }
+        public DbSet<UserToPersonConnection> UserToPersonConnections { get; set; }
+        public DbSet<Person> People { get; set; }
         public DbSet<Patron> Patrons { get; set; }
         public DbSet<TaskContent> TaskContents { get; set; }
         public DbSet<ChallangeType> ChallangeTypes { get; set; }

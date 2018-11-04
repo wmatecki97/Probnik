@@ -15,5 +15,11 @@ namespace Probnik
         public int PersonId { get; set; }
         public ConnectionType ConnectionType { get; set; }
 
+        public UserToPersonConnection(int userId, int personId, ConnectionType connectionType)
+        {
+            this.UserId = userId;
+            this.PersonId = personId;
+            this.ConnectionType = connectionType;
+        }
     }
 }

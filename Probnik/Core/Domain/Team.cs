@@ -16,5 +16,15 @@ namespace Probnik
         public ICollection<Person> Members { get; set; }
         public ICollection<Patron>  Patrons { get; set; }
 
+        public Team(string name, int ownerId, params Methodology[] methodologies)
+        {
+            Name = name;
+            OwnerId = ownerId;
+            foreach (var methodology in methodologies)
+            {
+                Methodologies.Add(methodology);
+            }
+        }
+
     }
 }

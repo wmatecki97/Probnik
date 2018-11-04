@@ -14,5 +14,21 @@ namespace Probnik
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
         public ICollection<UserToPersonConnection> People { get; set; }
+
+        public bool isValid
+        {
+            get
+            {
+                return Login.Length > 8 
+                       && Password.Length > 8 
+                       && Email.Contains('@') 
+                       && Email.Length > 8;
+            }
+        }
+
+        public bool PasswordMatch(string password)
+        {
+            return password == Password;
+        }
     }
 }
