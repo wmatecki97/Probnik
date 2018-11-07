@@ -22,6 +22,12 @@ namespace Probnik.Presistence.Repositories
             }
         }
 
+        public Person GetPersonByPesel(string pesel)
+        {
+            return ProbnikContext.People
+                .SingleOrDefault(p => p.PESEL == pesel);
+        }
+
         public Person GetPersonWithChallanges(int personId)
         {
             return ProbnikContext.People
