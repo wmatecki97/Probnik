@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,9 @@ namespace Probnik.EntitiesConfiguration
                     m.MapLeftKey("ChallangeTypeId");
                     m.MapRightKey("MethodologyId");
                 });
+
+            Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
         }
     }
 }

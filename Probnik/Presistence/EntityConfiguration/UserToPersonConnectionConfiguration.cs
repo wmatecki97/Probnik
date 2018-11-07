@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,9 @@ namespace Probnik.EntitiesConfiguration
             HasRequired(c => c.User)
                 .WithMany(u => u.People)
                 .HasForeignKey(c => c.UserId);
+
+            Property(u => u.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
         }
     }
 }

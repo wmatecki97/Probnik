@@ -8,7 +8,7 @@ namespace Probnik
 {
     public class UserToPersonConnection
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
         public Person Person { get; set; }

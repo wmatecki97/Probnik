@@ -13,7 +13,7 @@ namespace Probnik.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201811042139359_InitialModel"; }
+            get { return "201811071806089_InitialModel"; }
         }
         
         string IMigrationMetadata.Source

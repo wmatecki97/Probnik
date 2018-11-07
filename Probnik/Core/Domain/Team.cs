@@ -20,10 +20,7 @@ namespace Probnik
         {
             Name = name;
             OwnerId = ownerId;
-            foreach (var methodology in methodologies)
-            {
-                Methodologies.Add(methodology);
-            }
+            Methodologies = methodologies.ToList();
         }
 
     }

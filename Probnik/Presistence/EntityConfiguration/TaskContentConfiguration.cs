@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace Probnik.EntitiesConfiguration
             HasRequired(t => t.ChallangeType)
                 .WithMany(c => c.Tasks)
                 .HasForeignKey(t => t.ChallangeTypeId);
+
+            Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
         }
     }
 }
