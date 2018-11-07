@@ -7,6 +7,7 @@ namespace Probnik
         public int Id { get; set; }
         public Person Owner { get; set; }
         public TaskContent Task { get; set; }
+        public int TaskId { get; set; }
         public string Mission { get; set; }
         public TaskState State { get; set; }
         public ICollection<string> Comments { get; set; }

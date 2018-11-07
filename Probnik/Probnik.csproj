@@ -49,7 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IChallangeRepository.cs" />
+    <Compile Include="Core\Repositories\IChallangeTypeRepository.cs" />
+    <Compile Include="Core\Repositories\IPatronRepository.cs" />
+    <Compile Include="Core\Repositories\IPersonRepository.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\ITeamRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
     <Compile Include="Migrations\201811042139359_InitialModel.cs" />
     <Compile Include="Migrations\201811042139359_InitialModel.Designer.cs">
@@ -75,7 +80,12 @@
     <Compile Include="Core\Domain\TaskState.cs" />
     <Compile Include="Presistence\ProbnikContext.cs" />
     <Compile Include="Core\Domain\Team.cs" />
+    <Compile Include="Presistence\Repositories\ChallangeRpository.cs" />
+    <Compile Include="Presistence\Repositories\ChallangeTypeRepository.cs" />
+    <Compile Include="Presistence\Repositories\PatronRepository.cs" />
+    <Compile Include="Presistence\Repositories\PersonRepository.cs" />
     <Compile Include="Presistence\Repositories\Repository.cs" />
+    <Compile Include="Presistence\Repositories\TeamRepository.cs" />
     <Compile Include="Presistence\Repositories\UserRepository.cs" />
     <Compile Include="Presistence\UnitOfWork.cs" />
     <Compile Include="Program.cs" />

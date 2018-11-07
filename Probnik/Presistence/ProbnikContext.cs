@@ -9,7 +9,7 @@ using Probnik.Presistence.EntityConfiguration;
 
 namespace Probnik
 {
-    class ProbnikContext : DbContext
+    public class ProbnikContext : DbContext
     {
         public ProbnikContext() : base("Probnik")
         {
