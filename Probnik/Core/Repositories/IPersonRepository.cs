@@ -11,5 +11,6 @@ namespace Probnik.Core.Repositories
         Person GetPersonWithTeams(int personId);
         Person GetPersonWithChallanges(int personId);
         Person GetPersonWithChallangesAndTeams(int personId);
+        Person GetPersonByPesel(string pesel);
     }
 }
