@@ -15,6 +15,17 @@ namespace Probnik
         public bool IsAdmin { get; set; }
         public ICollection<UserToPersonConnection> People { get; set; }
 
+        public User()
+        {
+        }
+        public User(string login, string password, string email)
+        {
+            Login = login;
+            Password = password;
+            Email = email;
+            IsAdmin = false;
+        }
+
         public bool isValid
         {
             get

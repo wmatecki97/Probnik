@@ -12,5 +12,9 @@ namespace Probnik
         public TaskState State { get; set; }
         public ICollection<string> Comments { get; set; }
         public Patron Patron { get; set; }
+
+        public Challange()
+        {
+        }
     }
 }

@@ -10,5 +10,13 @@ namespace Probnik
     {
         public byte Id { get; set; }
         public string Name { get; set; }
+
+        public Methodology()
+        {
+        }
+        public Methodology(string name)
+        {
+            Name = name;
+        }
     }
 }

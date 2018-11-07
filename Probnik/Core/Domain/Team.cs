@@ -21,6 +21,10 @@ namespace Probnik
             Name = name;
             OwnerId = ownerId;
             Methodologies = methodologies.ToList();
+
+            public Team ()
+            {
+            }
         }
 
     }

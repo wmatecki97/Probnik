@@ -21,6 +21,10 @@ namespace Probnik
         public virtual ICollection<UserToPersonConnection> Users { get; set; }
         public virtual ICollection<Challange>  Challanges { get; set; }
 
+        public Person()
+        {
+        }
+
         public Person(string name, string surname, string dateOfBirth)
         {
             Name = name;

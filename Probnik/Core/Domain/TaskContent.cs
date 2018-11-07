@@ -13,5 +13,9 @@ namespace Probnik
         public int ChallangeTypeId { get; set; }
         public ChallangeType ChallangeType { get; set; }
         public byte TaskNumber { get; set; }
+
+        public TaskContent()
+        {
+        }
     }
 }

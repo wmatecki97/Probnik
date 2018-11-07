@@ -11,5 +11,9 @@ namespace Probnik
         public Person Person { get; set; }
         public int Id { get; set; }
 //        public ICollection<Challange> ChallangesPatron { get; set; }
+
+        public Patron()
+        {
+        }
     }
 }
