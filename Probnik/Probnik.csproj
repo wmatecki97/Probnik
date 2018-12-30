@@ -31,15 +31,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="GrapevinePlus">
+      <HintPath>..\packages\GrapevinePlus.3.1.0\lib\net40\GrapevinePlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DTO\PersonDTO.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IChallangeRepository.cs" />
     <Compile Include="Core\Repositories\IChallangeTypeRepository.cs" />
@@ -56,9 +67,9 @@
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ITeamRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
-    <Compile Include="Migrations\201811042139359_InitialModel.cs" />
-    <Compile Include="Migrations\201811042139359_InitialModel.Designer.cs">
-      <DependentUpon>201811042139359_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201812300113564_InitialModel.cs" />
+    <Compile Include="Migrations\201812300113564_InitialModel.Designer.cs">
+      <DependentUpon>201812300113564_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
@@ -93,6 +104,11 @@
     <Compile Include="Core\Domain\User.cs" />
     <Compile Include="Core\Domain\UserToPersonConnection.cs" />
     <Compile Include="Core\Domain\TaskContent.cs" />
+    <Compile Include="REST\Controllers\LoginController.cs" />
+    <Compile Include="REST\PersonController.cs" />
+    <Compile Include="REST\RestOptions.cs" />
+    <Compile Include="REST\SampleRestResource.cs" />
+    <Compile Include="REST\Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -101,8 +117,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811042139359_InitialModel.resx">
-      <DependentUpon>201811042139359_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812300113564_InitialModel.resx">
+      <DependentUpon>201812300113564_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
