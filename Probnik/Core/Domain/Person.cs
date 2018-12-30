@@ -26,6 +26,12 @@ namespace Probnik
             Name = name;
             Surname = surname;
             DateOfBirth = DateTime.Parse(dateOfBirth);
+            GenerateNewKey();
+            
+            Teams = new List<Team>();
+            Users = new List<UserToPersonConnection>();
+            Challanges = new List<Challange>();
+
         }
 
             

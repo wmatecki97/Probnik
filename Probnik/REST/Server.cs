@@ -48,6 +48,7 @@ namespace Probnik.REST
                         var server = new RESTServer();
                         server.Host = options.Host;
                         server.Port = options.Port;
+
                         server.Start();
 
                         exitEvent.WaitOne();

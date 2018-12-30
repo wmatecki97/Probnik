@@ -42,11 +42,11 @@ namespace Probnik.REST
             public string area { get; set; }
         }
 
-        [RESTRoute]
-        public void HandleAllGetRequests(HttpListenerContext context)
-        {
-            SendTextResponse(context, "ROOT NODE");
-        }
+        //[RESTRoute]
+        //public void HandleAllGetRequests(HttpListenerContext context)
+        //{
+        //    SendTextResponse(context, "ROOT NODE");
+        //}
 
     }
 }
