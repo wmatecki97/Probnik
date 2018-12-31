@@ -14,6 +14,8 @@ namespace Probnik.REST.Controllers
     {
         public void RespondJson(HttpListenerContext context, Object obj)
         {
+
+            context.Response.Headers.Clear();
             context.Response.AddHeader("Access-Control-Allow-Origin", "*");
             SendJsonResponse(context, obj);
         }

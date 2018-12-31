@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201812300113564_InitialModel.Designer.cs">
       <DependentUpon>201812300113564_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812311117134_SmallChanges.cs" />
+    <Compile Include="Migrations\201812311117134_SmallChanges.Designer.cs">
+      <DependentUpon>201812311117134_SmallChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\PatronConfiguration.cs" />
@@ -109,9 +113,12 @@
     <Compile Include="REST\Controllers\LoginController.cs" />
     <Compile Include="REST\PersonController.cs" />
     <Compile Include="REST\MyResponder.cs" />
+    <Compile Include="REST\RESTHelper.cs" />
     <Compile Include="REST\RestOptions.cs" />
     <Compile Include="REST\SampleRestResource.cs" />
     <Compile Include="REST\Server.cs" />
+    <Compile Include="REST\Session.cs" />
+    <Compile Include="REST\SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -122,6 +129,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812300113564_InitialModel.resx">
       <DependentUpon>201812300113564_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812311117134_SmallChanges.resx">
+      <DependentUpon>201812311117134_SmallChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

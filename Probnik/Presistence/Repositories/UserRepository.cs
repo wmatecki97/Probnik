@@ -15,7 +15,7 @@ namespace Probnik.Presistence.Repositories
         {
         }
 
-       IEnumerable<User> IUserRepository.GetUserWithPeople(int userId)
+        IEnumerable<User> IUserRepository.GetUserWithPeople(int userId)
         {
             return ProbnikContext.Users.Include(u => u.People).Where(u => u.Id == userId);
 

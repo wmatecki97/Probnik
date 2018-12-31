@@ -24,5 +24,11 @@ namespace Probnik.Core.DTO
             IsAdmin = user.IsAdmin;
             Token = user.Token;
         }
+
+        public UserDTO()
+        {
+        }
+
+       
     }
 }

@@ -16,7 +16,13 @@ namespace Probnik
         public string Token { get; set; }
 
         public ICollection<UserToPersonConnection> People { get; set; }
-        
+
+        public User()
+        {
+            People = new List<UserToPersonConnection>();
+            IsAdmin = false;
+            Token = Id.ToString() + RandomString(20);
+        }
 
         public bool isValid
         {
@@ -32,6 +38,14 @@ namespace Probnik
         public bool PasswordMatch(string password)
         {
             return password == Password;
+        }
+
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
