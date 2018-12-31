@@ -111,6 +111,7 @@
     <Compile Include="Core\Domain\UserToPersonConnection.cs" />
     <Compile Include="Core\Domain\TaskContent.cs" />
     <Compile Include="REST\Controllers\LoginController.cs" />
+    <Compile Include="REST\Controllers\PersonControler.cs" />
     <Compile Include="REST\PersonController.cs" />
     <Compile Include="REST\MyResponder.cs" />
     <Compile Include="REST\RESTHelper.cs" />

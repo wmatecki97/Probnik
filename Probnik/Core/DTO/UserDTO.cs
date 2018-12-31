@@ -15,6 +15,8 @@ namespace Probnik.Core.DTO
         public bool IsAdmin { get; set; }
         public string Token { get; set; }
 
+        public List<Person> ConnectedPeople;
+
         public UserDTO(User user)
         {
             Id = user.Id;
@@ -23,6 +25,13 @@ namespace Probnik.Core.DTO
             Email = user.Email;
             IsAdmin = user.IsAdmin;
             Token = user.Token;
+
+            ConnectedPeople = new List<Person>();
+
+            foreach (var connection in user.People)
+            {
+                ConnectedPeople.Add(connection.Person);
+            }
         }
 
         public UserDTO()
@@ -30,5 +39,6 @@ namespace Probnik.Core.DTO
         }
 
        
+
     }
 }

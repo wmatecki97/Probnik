@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Probnik.REST.Controllers
     public sealed class LoginController : RESTResource
     {
 
-        [RESTRoute(Method = HttpMethod.GET, PathInfo = @"/Get/User")]
+        [RESTRoute(Method = HttpMethod.GET, PathInfo = @"^/Get/User$")]
         public void HandleGetGreetRequest(HttpListenerContext context)
         {
             Console.WriteLine("URL: {0}", context.Request.RawUrl);
@@ -26,13 +27,14 @@ namespace Probnik.REST.Controllers
             user.IsAdmin = true;
             user.Password = "haslotestowe";
 
-            
+
+
             var userDTO = new UserDTO(user);
 
             MyResponder.RespondJson(context, userDTO);
         }
 
-        [RESTRoute(Method = HttpMethod.PUT, PathInfo = @"/Login")]
+        [RESTRoute(Method = HttpMethod.PUT, PathInfo = @"^/Login$")]
         public void Login(HttpListenerContext context)
         {
             Console.WriteLine("URL: {0}", context.Request.RawUrl);

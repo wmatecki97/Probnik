@@ -9,6 +9,6 @@ namespace Probnik.Core.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
-        IEnumerable<User> GetUserWithPeople(int userId);
+        User GetUserWithPeople(int userId);
     }
 }

@@ -34,6 +34,10 @@ namespace Probnik
 
         }
 
+        public Person()
+        {
+            
+        }
             
         public Person(string name, string surname, string pesel, string dateOfBirth) : this(name, surname, dateOfBirth)
         {
