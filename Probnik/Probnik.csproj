@@ -77,6 +77,14 @@
     <Compile Include="Migrations\201812311117134_SmallChanges.Designer.cs">
       <DependentUpon>201812311117134_SmallChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901021402012_PersonOwnerAttributeAdded.cs" />
+    <Compile Include="Migrations\201901021402012_PersonOwnerAttributeAdded.Designer.cs">
+      <DependentUpon>201901021402012_PersonOwnerAttributeAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901021434327_PeselIndexDeleted.cs" />
+    <Compile Include="Migrations\201901021434327_PeselIndexDeleted.Designer.cs">
+      <DependentUpon>201901021434327_PeselIndexDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\PatronConfiguration.cs" />
@@ -133,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812311117134_SmallChanges.resx">
       <DependentUpon>201812311117134_SmallChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901021402012_PersonOwnerAttributeAdded.resx">
+      <DependentUpon>201901021402012_PersonOwnerAttributeAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901021434327_PeselIndexDeleted.resx">
+      <DependentUpon>201901021434327_PeselIndexDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

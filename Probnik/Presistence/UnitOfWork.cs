@@ -17,13 +17,20 @@ namespace Probnik.Presistence
         {
             _context = context;
             Users = new UserRepository(_context);
+            People = new PersonRepository(_context);
+            Challenges = new ChallangeRpository(_context);
+            Teams = new TeamRepository(_context);
         }
 
         public IUserRepository Users { get; private set; }
+        public IPersonRepository People { get; private set; }
+        public IChallangeRepository Challenges { get; private set; }
+        public ITeamRepository Teams { get; private set; }
 
-        public int Complete()
+
+        public void Complete()
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
 
         public void Dispose()

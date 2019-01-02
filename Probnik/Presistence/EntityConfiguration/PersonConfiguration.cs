@@ -16,7 +16,7 @@ namespace Probnik.EntitiesConfiguration
                 .WithRequired(c => c.Owner);
 
             Property(p => p.PESEL).HasMaxLength(20);
-            HasIndex(p => p.PESEL).IsUnique();
+//            HasIndex(p => p.PESEL).IsUnique();
 
             Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
