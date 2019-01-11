@@ -27,7 +27,6 @@ namespace Probnik.Presistence
         public IChallangeRepository Challenges { get; private set; }
         public ITeamRepository Teams { get; private set; }
 
-
         public void Complete()
         {
             _context.SaveChanges();

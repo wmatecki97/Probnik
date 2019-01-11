@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DTO\PersonDTO.cs" />
+    <Compile Include="Core\DTO\TeamDTO.cs" />
     <Compile Include="Core\DTO\UserDTO.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IChallangeRepository.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Core\Domain\TaskContent.cs" />
     <Compile Include="REST\Controllers\LoginController.cs" />
     <Compile Include="REST\Controllers\PersonControler.cs" />
+    <Compile Include="REST\Controllers\TeamsController.cs" />
     <Compile Include="REST\PersonController.cs" />
     <Compile Include="REST\MyResponder.cs" />
     <Compile Include="REST\RESTHelper.cs" />
