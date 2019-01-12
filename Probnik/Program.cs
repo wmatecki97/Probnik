@@ -49,8 +49,11 @@ namespace Probnik
             w.Name = "Wędrownicy";
             context.Methodologies.AddOrUpdate(w);
 
+            Patron patron = new Patron();
+            patron.Person = person;
 
             Team b = new Team("Berserk", 1, HS);
+            b.Patrons.Add(patron);
 
             context.Teams.AddOrUpdate(b);
 
@@ -58,6 +61,10 @@ namespace Probnik
             context.Teams.AddOrUpdate(e);
 
             context.SaveChanges();
+
+            
+
+
 
             //var unit = new UnitOfWork(context);
 

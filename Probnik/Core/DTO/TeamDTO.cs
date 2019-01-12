@@ -11,9 +11,9 @@ namespace Probnik.Core.DTO
         public int Id { get; set; }
         public string Name { get; set; }
         public int OwnerId { get; set; }
-        public IEnumerable<byte> Methodologies { get; set; }
-        public IEnumerable<int> Members { get; set; }
-        public IEnumerable<int> Patrons { get; set; }
+        public List<Methodology> Methodologies { get; set; }
+        public List<PersonDTO> Members { get; set; }
+        public List<PersonDTO> Patrons { get; set; }
 
         public TeamDTO()
         {
@@ -24,9 +24,10 @@ namespace Probnik.Core.DTO
             Id = team.Id;
             Name = team.Name;
             OwnerId = team.OwnerId;
-            Methodologies = team.Methodologies.Select(m => m.Id);
-            Members = team.Members.Select(m => m.Id.Value);
-            Patrons = team.Patrons.Select(p => p.Id);
+            Methodologies = team.Methodologies.ToList();
+            Members = new List<PersonDTO>();
+            Members = team.Members.Select(m => m.ToPersonDTO()).ToList();
+            Patrons = team.Patrons.Select(p => p.Person.ToPersonDTO()).ToList();
         }
     }
 }

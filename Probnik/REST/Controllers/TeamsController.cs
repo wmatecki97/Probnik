@@ -26,7 +26,7 @@ namespace Probnik.REST.Controllers
 
             var unit = new UnitOfWork(session.context);
 
-            var teams = unit.Teams.Find(t => t.Methodologies.Any(m => m.Id == methodologyId)).ToList();
+            var teams = unit.Teams.FindTeamsWithMembers(t => t.Methodologies.Any(m => m.Id == methodologyId)).ToList();
 
             var result = new List<TeamDTO>();
 
@@ -63,7 +63,47 @@ namespace Probnik.REST.Controllers
             var person = unit.People.GetPersonWithTeams(personId);
             var teams = person.Teams.ToList();
 
-            MyResponder.RespondJson(context, teams);
+            var result = new List<TeamDTO>();
+
+            foreach (var team in teams)
+            {
+                result.Add(team.ToDTO());
+            }
+
+            MyResponder.RespondJson(context, result);
         }
+
+
+        [RESTRoute(Method = HttpMethod.POST, PathInfo = @"^/Join/Team/")]
+        public void JoinTeam(HttpListenerContext context)
+        {
+            string[] parameters = context.Request.RawUrl.Replace("/Join/Team/", "").Split('/');
+            int teamId = int.Parse(parameters[0]);
+            string token = parameters[1];
+
+
+            var session = SessionManager.GetSession(token);
+
+            var personDTO = RESTHelper.GetObject<PersonDTO>(context);
+
+            if (session.user.People.Any(p => p.PersonId == personDTO.Id))
+            {
+                UnitOfWork unit = new UnitOfWork(session.context);
+
+                var team = unit.Teams.GetTeamWithMembers(teamId);
+                var person = unit.People.Get(personDTO.Id.Value);
+
+                if (team != null && !team.Members.Any(m => m.Id == person.Id))
+                {
+                    team.Members.Add(person);
+                    unit.Complete();
+                }
+
+                
+
+                MyResponder.RespondJson(context, team.ToDTO());
+            }
+        }
+
     }
 }
