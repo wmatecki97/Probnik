@@ -24,5 +24,10 @@ namespace Probnik
             this.PersonId = personId;
             this.ConnectionType = connectionType;
         }
+
+        public UserToPersonConnection()
+        {
+            
+        }
     }
 }
