@@ -9,7 +9,7 @@ namespace Probnik
     public class Patron
     {
         public Person Person { get; set; }
-        public int Id { get; set; }
+        public int? Id { get; set; }
 //        public ICollection<Challange> ChallangesPatron { get; set; }
 
         public Patron()

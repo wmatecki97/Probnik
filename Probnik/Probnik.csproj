@@ -57,9 +57,9 @@
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ITeamRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
-    <Compile Include="Migrations\201811071806089_InitialModel.cs" />
-    <Compile Include="Migrations\201811071806089_InitialModel.Designer.cs">
-      <DependentUpon>201811071806089_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201811071817175_IniitialModel.cs" />
+    <Compile Include="Migrations\201811071817175_IniitialModel.Designer.cs">
+      <DependentUpon>201811071817175_IniitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
@@ -104,8 +104,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811071806089_InitialModel.resx">
-      <DependentUpon>201811071806089_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811071817175_IniitialModel.resx">
+      <DependentUpon>201811071817175_IniitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

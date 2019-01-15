@@ -62,7 +62,7 @@ namespace Probnik
 
                 if (person.ConnectionKey == key)
                 {
-                    var connection = new UserToPersonConnection(userId, person.Id, connectionType);
+                    var connection = new UserToPersonConnection(userId, person.Id.Value, connectionType);
                     context.UserToPersonConnections.Add(connection);
                     person.GenerateNewKey();
                     context.SaveChanges();

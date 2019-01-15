@@ -8,7 +8,7 @@ namespace Probnik
 {
     public class ChallangeType
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public ICollection<Methodology> Methodologies { get; set; }
         public ICollection<TaskContent> Tasks { get; set; }
