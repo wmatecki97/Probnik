@@ -21,7 +21,7 @@ namespace Probnik.Core.DTO
 
         public TeamDTO(Team team)
         {
-            Id = team.Id;
+            Id = team.Id.Value;
             Name = team.Name;
             OwnerId = team.OwnerId;
             Methodologies = team.Methodologies.ToList();

@@ -38,9 +38,9 @@ namespace Probnik.Migrations
                         PESEL = c.String(maxLength: 20),
                         DateOfBirth = c.DateTime(nullable: false),
                         ConnectionKey = c.String(),
+                        OwnerID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.PESEL, unique: true);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Teams",
@@ -58,7 +58,7 @@ namespace Probnik.Migrations
                 "dbo.Methodologies",
                 c => new
                     {
-                        Id = c.Byte(nullable: false),
+                        Id = c.Byte(nullable: false, identity: true),
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -98,6 +98,7 @@ namespace Probnik.Migrations
                         Password = c.String(),
                         Email = c.String(),
                         IsAdmin = c.Boolean(nullable: false),
+                        Token = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Login, unique: true);
@@ -220,7 +221,6 @@ namespace Probnik.Migrations
             DropIndex("dbo.UserToPersonConnections", new[] { "UserId" });
             DropIndex("dbo.Patrons", new[] { "PersonId" });
             DropIndex("dbo.Teams", new[] { "OwnerId" });
-            DropIndex("dbo.People", new[] { "PESEL" });
             DropIndex("dbo.Challanges", new[] { "StateId" });
             DropIndex("dbo.Challanges", new[] { "Patron_Id" });
             DropIndex("dbo.Challanges", new[] { "Owner_Id" });

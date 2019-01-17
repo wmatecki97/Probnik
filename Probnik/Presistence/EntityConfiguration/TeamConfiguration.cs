@@ -21,6 +21,8 @@ namespace Probnik.EntitiesConfiguration
                     m.MapRightKey("PersonId");
                 });
 
+            Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
             HasRequired(t => t.Owner)
                 .WithMany()
                 .HasForeignKey(t => t.OwnerId)

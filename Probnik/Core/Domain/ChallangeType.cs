@@ -15,6 +15,8 @@ namespace Probnik
 
         public ChallangeType()
         {
+            Methodologies = new List<Methodology>();
+            Tasks = new List<TaskContent>();
         }
     }
 }
