@@ -37,7 +37,6 @@ namespace Probnik
             modelBuilder.Configurations.Add(new TeamConfiguration());
             modelBuilder.Configurations.Add(new ChallangeTypeConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
-            modelBuilder.Configurations.Add(new MethodologyConfiguration());
         }
 
     }

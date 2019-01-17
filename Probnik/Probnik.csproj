@@ -119,6 +119,7 @@
     <Compile Include="Core\Domain\User.cs" />
     <Compile Include="Core\Domain\UserToPersonConnection.cs" />
     <Compile Include="Core\Domain\TaskContent.cs" />
+    <Compile Include="REST\Controllers\ChallengeController.cs" />
     <Compile Include="REST\Controllers\LoginController.cs" />
     <Compile Include="REST\Controllers\PersonControler.cs" />
     <Compile Include="REST\Controllers\TeamsController.cs" />

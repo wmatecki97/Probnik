@@ -19,7 +19,7 @@ namespace Probnik.Core.DTO
 
         public UserDTO(User user)
         {
-            Id = user.Id;
+            Id = user.Id.Value;
             Login = user.Login;
             Password = user.Password;
             Email = user.Email;

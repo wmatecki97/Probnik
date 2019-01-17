@@ -20,7 +20,7 @@ namespace Probnik.REST.Controllers
             var session = SessionManager.GetSession(token);
 
             UnitOfWork unit = new UnitOfWork(session.context);
-            var user = unit.Users.GetUserWithPeople(session.user.Id);
+            var user = unit.Users.GetUserWithPeople(session.user.Id.Value);
 
             var conn = user.People.FirstOrDefault(c => c.ConnectionType == ConnectionType.PersonToOwner);
             var person = unit.People.Get(conn.PersonId);
@@ -58,14 +58,14 @@ namespace Probnik.REST.Controllers
             {
                 var user = session.user;
                 var person = personDTO.ToPerson();
-                person.OwnerID = user.Id;
+                person.OwnerID = user.Id.Value;
 
                 unit.People.Add(person);
                 session.context.SaveChanges();
                 person = unit.People.Find(p => p.OwnerID == user.Id).FirstOrDefault();
 
 
-                var connection = new UserToPersonConnection(user.Id, person.Id.Value, ConnectionType.PersonToOwner);
+                var connection = new UserToPersonConnection(user.Id.Value, person.Id.Value, ConnectionType.PersonToOwner);
 
                 person.Users.Add(connection);
                 user.People.Add(connection);

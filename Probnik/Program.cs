@@ -74,7 +74,7 @@ namespace Probnik
             };
 
             ChallangeType challengeType = new ChallangeType();
-            challengeType.Methodologies.Add(hs);
+            challengeType.Methodologies.Add(HS);
             challengeType.Name = "Odkrywca";
             challengeType.Tasks.Add(task1);
             challengeType.Tasks.Add(task2);

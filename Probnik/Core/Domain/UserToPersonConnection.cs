@@ -25,9 +25,5 @@ namespace Probnik
             this.ConnectionType = connectionType;
         }
 
-        public UserToPersonConnection()
-        {
-            
-        }
     }
 }
