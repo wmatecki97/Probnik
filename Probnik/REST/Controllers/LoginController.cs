@@ -26,6 +26,7 @@ namespace Probnik.REST.Controllers
             user.Email = "wmatecki97@gmail.com";
             user.IsAdmin = true;
             user.Password = "haslotestowe";
+            user.Id = 1;
 
 
 

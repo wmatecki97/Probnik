@@ -1,38 +1,39 @@
-﻿using Grapevine;
-using Grapevine.Server;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Probnik.Presistence;
+using Grapevine;
+using Grapevine.Server;
 using Probnik.Core.DTO;
+using Probnik.Presistence;
 
 namespace Probnik.REST.Controllers
 {
-    public sealed class TeamsController : RESTResource
+    public sealed class ChallengeController : RESTResource
     {
-
-        [RESTRoute(Method = HttpMethod.GET, PathInfo = @"^/Get/Teams/")]
-        public void GetTeamsByMethodology(HttpListenerContext context)
+        [RESTRoute(Method = HttpMethod.GET, PathInfo = @"^/Get/Challenges/")]
+        public void GetChallengesForTeam(HttpListenerContext context)
         {
-            string[] parameters = context.Request.RawUrl.Replace("/Get/Teams/", "").Split('/');
+            string[] parameters = context.Request.RawUrl.Replace("/Get/Challenges/", "").Split('/');
 
-            string token = parameters[0];
-            int methodologyId = int.Parse(parameters[1]);
+            int teamId = int.Parse(parameters[0]);
+            string token = parameters[1];
 
             var session = SessionManager.GetSession(token);
 
             var unit = new UnitOfWork(session.context);
 
-            var teams = unit.Teams.FindTeamsWithMembersAndPatrons(t => t.Methodologies.Any(m => m.Id == methodologyId)).ToList();
+            var team = unit.Teams.Get(teamId);
+            
 
-            var result = new List<TeamDTO>();
+            var result = new List<ChallangeType>();
 
-            foreach (var team in teams)
+            foreach (var methodology in team.Methodologies)
             {
-                result.Add(team.ToDTO());
+                var challenges = unit.ChallangeTypes.GetChallangeTypesForMethodology(methodology.Id.Value);
+                result.AddRange(challenges);
             }
 
             MyResponder.RespondJson(context, result);
@@ -99,11 +100,10 @@ namespace Probnik.REST.Controllers
                     unit.Complete();
                 }
 
-                
+
 
                 MyResponder.RespondJson(context, team.ToDTO());
             }
         }
-
     }
 }

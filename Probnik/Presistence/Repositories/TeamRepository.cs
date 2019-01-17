@@ -23,10 +23,11 @@ namespace Probnik.Presistence.Repositories
             }
         }
 
-        public IEnumerable<Team> FindTeamsWithMembers(Expression<Func<Team,bool>> expression)
+        public IEnumerable<Team> FindTeamsWithMembersAndPatrons(Expression<Func<Team,bool>> expression)
         {
             return ProbnikContext.Teams.Where(expression)
-                .Include(t => t.Members);
+                .Include(t => t.Members)
+                .Include(t => t.Patrons);
         }
 
         public Team GetTeamWithMembers(int teamId)

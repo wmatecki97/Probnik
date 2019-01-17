@@ -14,7 +14,7 @@ namespace Probnik
     {
         static void Main(string[] args)
         {
-//            Test();
+            //Test();
 
             Server.Start();
 
@@ -29,40 +29,49 @@ namespace Probnik
             user.Email = "wmatecki97@gmail.com";
             user.IsAdmin = true;
             user.Password = "haslotestowe";
-            user.Id = 1;
 
-            context.Users.AddOrUpdate(user);
+            //context.Users.AddOrUpdate(user);
 
             Person person = new Person("Wiktor", "Matecki", "18-08-1997");
-            person.Id = 1;
 
-            context.People.AddOrUpdate(person);
+//            UserToPersonConnection upc = new UserToPersonConnection();
+//            upc.User = user;
+//            upc.Person = person;
+//
+//            person.Users.Add(upc);
 
+
+            //context.People.AddOrUpdate(person);
+
+            //context.SaveChanges();
 
             Methodology HS = new Methodology();
-            HS.Id = 1;
             HS.Name = "Harcerze Starsi";
 
-            context.Methodologies.AddOrUpdate(HS);
+            //context.Methodologies.AddOrUpdate(HS);
 
             Methodology w = new Methodology();
-            w.Id = 2;
             w.Name = "Wędrownicy";
-            context.Methodologies.AddOrUpdate(w);
+            //context.Methodologies.AddOrUpdate(w);
 
             Patron patron = new Patron();
             patron.Person = person;
 
-            Team b = new Team("Berserk", 1, HS);
+            Team b = new Team();
+            b.Name = "Berserk";
+            b.Methodologies.Add(HS);
             b.Patrons.Add(patron);
 
             context.Teams.AddOrUpdate(b);
 
-            Team e = new Team("Emilki", 1, w);
+            Team e = new Team();
+            e.Name = "Emilki";
+            e.Methodologies.Add(w);
             context.Teams.AddOrUpdate(e);
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
+            //HS = context.Methodologies.First(m => m.Name == "Harcerze Starsi");
             TaskContent task1 = new TaskContent();
             task1.Content = "Wyzwanie sportowe";
             task1.TaskNumber = 1;
@@ -79,7 +88,8 @@ namespace Probnik
             challengeType.Tasks.Add(task1);
             challengeType.Tasks.Add(task2);
 
-            
+            context.ChallangeTypes.Add(challengeType);
+            context.SaveChanges();
 
             //var unit = new UnitOfWork(context);
 
