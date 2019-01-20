@@ -59,7 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DTO\ChallengeDTO.cs" />
+    <Compile Include="Core\DTO\ChallengeTypeDTO.cs" />
+    <Compile Include="Core\DTO\PatronDTO.cs" />
     <Compile Include="Core\DTO\PersonDTO.cs" />
+    <Compile Include="Core\DTO\TaskContentDTO.cs" />
     <Compile Include="Core\DTO\TeamDTO.cs" />
     <Compile Include="Core\DTO\UserDTO.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
@@ -70,9 +74,9 @@
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ITeamRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
-    <Compile Include="Migrations\201901172242429_InitialModel.cs" />
-    <Compile Include="Migrations\201901172242429_InitialModel.Designer.cs">
-      <DependentUpon>201901172242429_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201901201416496_InitialModel.cs" />
+    <Compile Include="Migrations\201901201416496_InitialModel.Designer.cs">
+      <DependentUpon>201901201416496_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
@@ -128,8 +132,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901172242429_InitialModel.resx">
-      <DependentUpon>201901172242429_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901201416496_InitialModel.resx">
+      <DependentUpon>201901201416496_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

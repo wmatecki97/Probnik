@@ -24,7 +24,7 @@ namespace Probnik
         public DbSet<ChallangeType> ChallangeTypes { get; set; }
         public DbSet<Challange> Challanges { get; set; }
         public DbSet<Methodology> Methodologies { get; set; }
-        public DbSet<TaskState> TaskStateses { get; set; }
+//        public DbSet<TaskState> TaskStateses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

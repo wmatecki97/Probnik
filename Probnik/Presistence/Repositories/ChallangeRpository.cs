@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Probnik.Core.Repositories;
@@ -27,7 +28,7 @@ namespace Probnik.Presistence.Repositories
             return ProbnikContext.Challanges
                 .Include(c => c.Owner)
                 .Include(c => c.State)
-                .Where(c => c.Owner.Id == personId && c.State.Id == taskState)
+                .Where(c => c.Owner.Id == personId && c.State.Equals(taskState))
                 .ToList();
         }
 

@@ -20,9 +20,9 @@ namespace Probnik.EntitiesConfiguration
                 .WithOptional();
                 //.Map(m => m.MapKey("TaskId"));
 
-            HasRequired(c => c.State)
-                .WithMany()
-                .Map(m => m.MapKey("StateId"));
+//            HasRequired(c => c.State)
+//                .WithMany()
+//                .Map(m => m.MapKey("StateId"));
 
             Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
@@ -30,6 +30,13 @@ namespace Probnik.EntitiesConfiguration
             //    .WithMany()
             //    .Map(m => m.MapKey("OwnerId"));
 
+            HasOptional(c => c.Patron)
+                .WithMany()
+                .HasForeignKey(c => c.PatronId);
+
+            HasRequired(c => c.Owner)
+                .WithMany()
+                .Map(m => m.MapKey("OwnerId"));
 
         }
     }

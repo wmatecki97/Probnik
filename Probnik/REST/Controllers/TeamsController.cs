@@ -60,7 +60,7 @@ namespace Probnik.REST.Controllers
 
             var personId = session.user.People.FirstOrDefault(p => p.ConnectionType == ConnectionType.PersonToOwner).Id;
 
-            var person = unit.People.GetPersonWithTeams(personId);
+            var person = unit.People.GetPersonWithTeams(personId.Value);
             var teams = person.Teams.ToList();
 
             var result = new List<TeamDTO>();

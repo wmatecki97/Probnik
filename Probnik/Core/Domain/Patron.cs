@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Probnik.Core.DTO;
 
 namespace Probnik
 {
@@ -14,6 +15,11 @@ namespace Probnik
 
         public Patron()
         {
+        }
+
+        public PatronDTO ToPatronDTO()
+        {
+            return new PatronDTO(this);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Probnik.Core.DTO
         public int OwnerId { get; set; }
         public List<Methodology> Methodologies { get; set; }
         public List<PersonDTO> Members { get; set; }
-        public List<PersonDTO> Patrons { get; set; }
+        public List<PatronDTO> Patrons { get; set; }
 
         public TeamDTO()
         {
@@ -27,7 +27,7 @@ namespace Probnik.Core.DTO
             Methodologies = team.Methodologies.ToList();
             Members = new List<PersonDTO>();
             Members = team.Members.Select(m => m.ToPersonDTO()).ToList();
-            Patrons = team.Patrons.Select(p => p.Person.ToPersonDTO()).ToList();
+            Patrons = team.Patrons.Select(p => p.ToPatronDTO()).ToList();
         }
     }
 }

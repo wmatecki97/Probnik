@@ -26,6 +26,7 @@ namespace Probnik.Presistence.Repositories
         {
             return ProbnikContext.ChallangeTypes
                 .Include(c => c.Methodologies)
+                .Include(c => c.Tasks)
                 .Where(c => c.Methodologies.Any(m => m.Id == methodologyId))
                 .ToList();
         }
