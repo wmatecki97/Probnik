@@ -26,7 +26,7 @@ namespace Probnik.REST.Controllers
 
             var unit = new UnitOfWork(session.context);
 
-            var team = unit.Teams.Get(teamId);
+            var team = unit.Teams.GetTeamWithMethodologies(teamId);
 
 
             var result = new List<ChallengeTypeDTO>();
