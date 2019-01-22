@@ -28,15 +28,11 @@ namespace Probnik
             DateOfBirth = DateTime.Parse(dateOfBirth);
         }
 
-        public Person(string name, string surname)
+        public Person(string name, string surname) : this()
         {
             Name = name;
             Surname = surname;
             GenerateNewKey();
-            Teams = new List<Team>();
-            Users = new List<UserToPersonConnection>();
-            Challanges = new List<Challange>();
-
         }
 
         public Person(string name, string surname, DateTime dateOfBirth):this(name, surname)
@@ -46,7 +42,10 @@ namespace Probnik
 
         public Person()
         {
-            
+            Teams = new List<Team>();
+            Users = new List<UserToPersonConnection>();
+            Challanges = new List<Challange>();
+            DateOfBirth = DateTime.Now;
         }
             
         public Person(string name, string surname, string pesel, string dateOfBirth) : this(name, surname, dateOfBirth)

@@ -13,6 +13,7 @@ namespace Probnik.Core.Repositories
         ICollection<Challange> GetPatronChallanges(int patronId);
         ICollection<Challange> GetChallangesByTask(int taskId);
         ICollection<Challange> GetChallangeForPersonWithTasksInState(int personId, byte taskState);
-
+        ICollection<Challange> GetChallengesForPatron(int patronId);
+        IEnumerable<Challange> FindFull(Expression<Func<Challange, bool>> predicate);
     }
 }

@@ -25,6 +25,15 @@ namespace Probnik.Migrations
 
             context.Users.AddOrUpdate(user);
 
+            User probant = new User();
+            probant.Login = "probant";
+            probant.Email = "probant@probnik.com";
+            probant.IsAdmin = false;
+            probant.Password = "haslotestowe";
+            probant.Id = 2;
+            context.Users.AddOrUpdate(probant);
+
+
             Person person = new Person("Wiktor", "Matecki", "18-08-1997");
             person.Id = 1;
 
@@ -87,7 +96,7 @@ namespace Probnik.Migrations
             challengeType.Tasks.Add(task1);
             challengeType.Tasks.Add(task2);
 
-            context.ChallangeTypes.Add(challengeType);
+            context.ChallangeTypes.AddOrUpdate(challengeType);
 
             context.SaveChanges();
             

@@ -55,5 +55,24 @@ namespace Probnik.Presistence.Repositories
                 .Where(c => c.Owner.Id == personId)
                 .ToList();
         }
+
+        public ICollection<Challange> GetChallengesForPatron(int patronId)
+        {
+            return ProbnikContext.Challanges
+                .Include(c => c.Owner)
+                .Include(c => c.Task)
+                .Where(c => c.PatronId == patronId)
+                .ToList();
+        }
+
+        public IEnumerable<Challange> FindFull(Expression<Func<Challange, bool>> predicate)
+        {
+            return ProbnikContext.Challanges
+                .Include(c => c.Owner)
+                .Include(c => c.Task)
+                .Include(c => c.Patron)
+                .Where(predicate)
+                .ToList();
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace Probnik.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.People", t => t.OwnerId, cascadeDelete: true)
                 .ForeignKey("dbo.Patrons", t => t.PatronId)
-                .ForeignKey("dbo.TaskContents", t => t.Id)
-                .Index(t => t.Id)
+                .ForeignKey("dbo.TaskContents", t => t.TaskId, cascadeDelete: true)
                 .Index(t => t.OwnerId)
+                .Index(t => t.TaskId)
                 .Index(t => t.PatronId);
             
             CreateTable(
@@ -180,7 +180,7 @@ namespace Probnik.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Challanges", "Id", "dbo.TaskContents");
+            DropForeignKey("dbo.Challanges", "TaskId", "dbo.TaskContents");
             DropForeignKey("dbo.TaskContents", "ChallangeTypeId", "dbo.ChallangeTypes");
             DropForeignKey("dbo.ChallangeTypesMethodologies", "MethodologyId", "dbo.Methodologies");
             DropForeignKey("dbo.ChallangeTypesMethodologies", "ChallangeTypeId", "dbo.ChallangeTypes");
@@ -211,8 +211,8 @@ namespace Probnik.Migrations
             DropIndex("dbo.Patrons", new[] { "PersonId" });
             DropIndex("dbo.Teams", new[] { "OwnerId" });
             DropIndex("dbo.Challanges", new[] { "PatronId" });
+            DropIndex("dbo.Challanges", new[] { "TaskId" });
             DropIndex("dbo.Challanges", new[] { "OwnerId" });
-            DropIndex("dbo.Challanges", new[] { "Id" });
             DropTable("dbo.ChallangeTypesMethodologies");
             DropTable("dbo.TeamPatrons");
             DropTable("dbo.TeamsMethodologies");

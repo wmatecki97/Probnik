@@ -17,7 +17,9 @@ namespace Probnik.EntitiesConfiguration
             //    .Map(m => m.MapKey("PatronId"));
 
             HasRequired(c => c.Task)
-                .WithOptional();
+                .WithMany()
+                .HasForeignKey(c => c.TaskId);
+
                 //.Map(m => m.MapKey("TaskId"));
 
 //            HasRequired(c => c.State)
@@ -36,7 +38,7 @@ namespace Probnik.EntitiesConfiguration
 
             HasRequired(c => c.Owner)
                 .WithMany()
-                .Map(m => m.MapKey("OwnerId"));
+                .HasForeignKey(c => c.OwnerId);
 
         }
     }
