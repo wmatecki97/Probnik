@@ -9,9 +9,24 @@ namespace Probnik
 {
     public class Team
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
-        public Person Owner { get; set; }
+        private Person owner;
+        public Person Owner
+        {
+            get
+            {
+                return owner;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    owner = value;
+                    OwnerId = value.Id??-1;
+                }
+            }
+        }
         public int OwnerId { get; set; }
         public ICollection<Methodology> Methodologies { get; set; }
         public ICollection<Person> Members { get; set; }
@@ -22,6 +37,8 @@ namespace Probnik
             Name = name;
             OwnerId = ownerId;
             Methodologies = methodologies.ToList();
+            Patrons = new List<Patron>();
+            Members = new List<Person>();
         }
 
         public Team()

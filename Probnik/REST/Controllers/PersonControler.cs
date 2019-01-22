@@ -23,9 +23,25 @@ namespace Probnik.REST.Controllers
             var user = unit.Users.GetUserWithPeople(session.user.Id.Value);
 
             var conn = user.People.FirstOrDefault(c => c.ConnectionType == ConnectionType.PersonToOwner);
+            if (conn == null)
+            {
+                var p = new Person();
+                var upc = new UserToPersonConnection();
+                upc.Person = p;
+                upc.User = user;
+                upc.ConnectionType = ConnectionType.PersonToOwner;
+                p.Users.Add(upc);
+
+                unit.People.Add(p);
+                unit.Complete();
+
+                user = unit.Users.GetUserWithPeople(session.user.Id.Value);
+                conn = user.People.FirstOrDefault(c => c.ConnectionType == ConnectionType.PersonToOwner);
+            }
+           
+
             var person = unit.People.Get(conn.PersonId);
             var personDTO = person.ToPersonDTO();
-
             MyResponder.RespondJson(context, personDTO);
         }
 

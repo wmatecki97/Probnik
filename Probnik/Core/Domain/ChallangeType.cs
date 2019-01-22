@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Probnik.Core.DTO;
 
 namespace Probnik
 {
@@ -15,6 +16,13 @@ namespace Probnik
 
         public ChallangeType()
         {
+            Methodologies = new List<Methodology>();
+            Tasks = new List<TaskContent>();
+        }
+
+        public ChallengeTypeDTO ToChallengeTypeDTO()
+        {
+            return new ChallengeTypeDTO(this);
         }
     }
 }

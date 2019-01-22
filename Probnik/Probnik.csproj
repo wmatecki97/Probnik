@@ -59,7 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DTO\ChallengeDTO.cs" />
+    <Compile Include="Core\DTO\ChallengeTypeDTO.cs" />
+    <Compile Include="Core\DTO\PatronDTO.cs" />
     <Compile Include="Core\DTO\PersonDTO.cs" />
+    <Compile Include="Core\DTO\TaskContentDTO.cs" />
     <Compile Include="Core\DTO\TeamDTO.cs" />
     <Compile Include="Core\DTO\UserDTO.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
@@ -70,24 +74,13 @@
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\Repositories\ITeamRepository.cs" />
     <Compile Include="Core\Repositories\IUserRepository.cs" />
-    <Compile Include="Migrations\201812300113564_InitialModel.cs" />
-    <Compile Include="Migrations\201812300113564_InitialModel.Designer.cs">
-      <DependentUpon>201812300113564_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812311117134_SmallChanges.cs" />
-    <Compile Include="Migrations\201812311117134_SmallChanges.Designer.cs">
-      <DependentUpon>201812311117134_SmallChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901021402012_PersonOwnerAttributeAdded.cs" />
-    <Compile Include="Migrations\201901021402012_PersonOwnerAttributeAdded.Designer.cs">
-      <DependentUpon>201901021402012_PersonOwnerAttributeAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901021434327_PeselIndexDeleted.cs" />
-    <Compile Include="Migrations\201901021434327_PeselIndexDeleted.Designer.cs">
-      <DependentUpon>201901021434327_PeselIndexDeleted.cs</DependentUpon>
+    <Compile Include="Migrations\201901212359234_InitialModel.cs" />
+    <Compile Include="Migrations\201901212359234_InitialModel.Designer.cs">
+      <DependentUpon>201901212359234_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Presistence\EntityConfiguration\ChallangeConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\ChallangeTypeConfiguration.cs" />
+    <Compile Include="Presistence\EntityConfiguration\MethodologyConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\PatronConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\PersonConfiguration.cs" />
     <Compile Include="Presistence\EntityConfiguration\TaskContentConfiguration.cs" />
@@ -139,17 +132,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812300113564_InitialModel.resx">
-      <DependentUpon>201812300113564_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812311117134_SmallChanges.resx">
-      <DependentUpon>201812311117134_SmallChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901021402012_PersonOwnerAttributeAdded.resx">
-      <DependentUpon>201901021402012_PersonOwnerAttributeAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901021434327_PeselIndexDeleted.resx">
-      <DependentUpon>201901021434327_PeselIndexDeleted.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901212359234_InitialModel.resx">
+      <DependentUpon>201901212359234_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

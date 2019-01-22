@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Probnik.Core.DTO;
 
 namespace Probnik
 {
@@ -17,5 +18,21 @@ namespace Probnik
         public TaskContent()
         {
         }
+
+        public TaskContentDTO ToTaskContentDTO()
+        {
+            return new TaskContentDTO(this);
+        }
+
+//        public TaskContent ToTaskContent()
+//        {
+//            TaskContent tc = new TaskContent();
+//            tc.Id = Id;
+//            tc.Content = Content;
+//            tc.ChallangeTypeId = ChallangeTypeId;
+//            tc.TaskNumber = TaskNumber;
+//
+//            return tc;
+//        }
     }
 }

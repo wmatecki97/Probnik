@@ -11,6 +11,6 @@ namespace Probnik.Core.Repositories
     {
         Team GetTeamWithMethodologies(int teamId);
         Team GetTeamWithMembers(int teamId);
-        IEnumerable<Team> FindTeamsWithMembers(Expression<Func<Team, bool>> expression);
+        IEnumerable<Team> FindTeamsWithMembersAndPatrons(Expression<Func<Team, bool>> expression);
     }
 }

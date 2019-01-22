@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Probnik.Presistence.EntityConfiguration
 {
-    class MethodologyConfiguration : EntityTypeConfiguration<Methodology>
+    class MethodologyConfiguration: EntityTypeConfiguration<Methodology>
     {
         public MethodologyConfiguration()
         {
             Property(m => m.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
         }
     }
 }

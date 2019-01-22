@@ -26,7 +26,7 @@ namespace Probnik.REST.Controllers
 
             var unit = new UnitOfWork(session.context);
 
-            var teams = unit.Teams.FindTeamsWithMembers(t => t.Methodologies.Any(m => m.Id == methodologyId)).ToList();
+            var teams = unit.Teams.FindTeamsWithMembersAndPatrons(t => t.Methodologies.Any(m => m.Id == methodologyId)).ToList();
 
             var result = new List<TeamDTO>();
 
@@ -60,7 +60,7 @@ namespace Probnik.REST.Controllers
 
             var personId = session.user.People.FirstOrDefault(p => p.ConnectionType == ConnectionType.PersonToOwner).Id;
 
-            var person = unit.People.GetPersonWithTeams(personId);
+            var person = unit.People.GetPersonWithTeams(personId.Value);
             var teams = person.Teams.ToList();
 
             var result = new List<TeamDTO>();

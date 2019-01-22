@@ -12,21 +12,20 @@ namespace Probnik.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Int(nullable: false),
                         TaskId = c.Int(nullable: false),
                         Mission = c.String(),
-                        Owner_Id = c.Int(nullable: false),
-                        Patron_Id = c.Int(),
-                        StateId = c.Byte(nullable: false),
+                        State = c.Byte(nullable: false),
+                        Comment = c.String(),
+                        PatronId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.People", t => t.Owner_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Patrons", t => t.Patron_Id)
-                .ForeignKey("dbo.TaskStates", t => t.StateId, cascadeDelete: true)
-                .ForeignKey("dbo.TaskContents", t => t.Id)
-                .Index(t => t.Id)
-                .Index(t => t.Owner_Id)
-                .Index(t => t.Patron_Id)
-                .Index(t => t.StateId);
+                .ForeignKey("dbo.People", t => t.OwnerId, cascadeDelete: true)
+                .ForeignKey("dbo.Patrons", t => t.PatronId)
+                .ForeignKey("dbo.TaskContents", t => t.TaskId, cascadeDelete: true)
+                .Index(t => t.OwnerId)
+                .Index(t => t.TaskId)
+                .Index(t => t.PatronId);
             
             CreateTable(
                 "dbo.People",
@@ -38,9 +37,9 @@ namespace Probnik.Migrations
                         PESEL = c.String(maxLength: 20),
                         DateOfBirth = c.DateTime(nullable: false),
                         ConnectionKey = c.String(),
+                        OwnerID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .Index(t => t.PESEL, unique: true);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Teams",
@@ -58,7 +57,7 @@ namespace Probnik.Migrations
                 "dbo.Methodologies",
                 c => new
                     {
-                        Id = c.Byte(nullable: false),
+                        Id = c.Byte(nullable: false, identity: true),
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -98,18 +97,10 @@ namespace Probnik.Migrations
                         Password = c.String(),
                         Email = c.String(),
                         IsAdmin = c.Boolean(nullable: false),
+                        Token = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Login, unique: true);
-            
-            CreateTable(
-                "dbo.TaskStates",
-                c => new
-                    {
-                        Id = c.Byte(nullable: false),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.TaskContents",
@@ -189,12 +180,11 @@ namespace Probnik.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Challanges", "Id", "dbo.TaskContents");
+            DropForeignKey("dbo.Challanges", "TaskId", "dbo.TaskContents");
             DropForeignKey("dbo.TaskContents", "ChallangeTypeId", "dbo.ChallangeTypes");
             DropForeignKey("dbo.ChallangeTypesMethodologies", "MethodologyId", "dbo.Methodologies");
             DropForeignKey("dbo.ChallangeTypesMethodologies", "ChallangeTypeId", "dbo.ChallangeTypes");
-            DropForeignKey("dbo.Challanges", "StateId", "dbo.TaskStates");
-            DropForeignKey("dbo.Challanges", "Patron_Id", "dbo.Patrons");
+            DropForeignKey("dbo.Challanges", "PatronId", "dbo.Patrons");
             DropForeignKey("dbo.UserToPersonConnections", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserToPersonConnections", "PersonId", "dbo.People");
             DropForeignKey("dbo.TeamPatrons", "PatronId", "dbo.Patrons");
@@ -205,7 +195,7 @@ namespace Probnik.Migrations
             DropForeignKey("dbo.TeamsMethodologies", "TeamId", "dbo.Teams");
             DropForeignKey("dbo.PeopleInTeams", "PersonId", "dbo.People");
             DropForeignKey("dbo.PeopleInTeams", "TeamId", "dbo.Teams");
-            DropForeignKey("dbo.Challanges", "Owner_Id", "dbo.People");
+            DropForeignKey("dbo.Challanges", "OwnerId", "dbo.People");
             DropIndex("dbo.ChallangeTypesMethodologies", new[] { "MethodologyId" });
             DropIndex("dbo.ChallangeTypesMethodologies", new[] { "ChallangeTypeId" });
             DropIndex("dbo.TeamPatrons", new[] { "PatronId" });
@@ -220,18 +210,15 @@ namespace Probnik.Migrations
             DropIndex("dbo.UserToPersonConnections", new[] { "UserId" });
             DropIndex("dbo.Patrons", new[] { "PersonId" });
             DropIndex("dbo.Teams", new[] { "OwnerId" });
-            DropIndex("dbo.People", new[] { "PESEL" });
-            DropIndex("dbo.Challanges", new[] { "StateId" });
-            DropIndex("dbo.Challanges", new[] { "Patron_Id" });
-            DropIndex("dbo.Challanges", new[] { "Owner_Id" });
-            DropIndex("dbo.Challanges", new[] { "Id" });
+            DropIndex("dbo.Challanges", new[] { "PatronId" });
+            DropIndex("dbo.Challanges", new[] { "TaskId" });
+            DropIndex("dbo.Challanges", new[] { "OwnerId" });
             DropTable("dbo.ChallangeTypesMethodologies");
             DropTable("dbo.TeamPatrons");
             DropTable("dbo.TeamsMethodologies");
             DropTable("dbo.PeopleInTeams");
             DropTable("dbo.ChallangeTypes");
             DropTable("dbo.TaskContents");
-            DropTable("dbo.TaskStates");
             DropTable("dbo.Users");
             DropTable("dbo.UserToPersonConnections");
             DropTable("dbo.Patrons");
