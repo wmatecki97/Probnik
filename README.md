@@ -1,5 +1,6 @@
 # Probnik
 System for manage challenges in scouting teams
+Backend of ProbnikFront application
 
 # Technologies
 C#
